@@ -4,7 +4,7 @@ import java.util.EnumMap;
 import java.util.Map;
 
 public class ParserFactory {
-    private static final Map<ParserType, Parser> parsers = new EnumMap<ParserType, Parser>(ParserType.class);
+    private static final Map<ParserType, Parser> parsers = new EnumMap<>(ParserType.class);
 
     {
         parsers.put(ParserType.XLS, new XlsParser());

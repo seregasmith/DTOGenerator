@@ -1,14 +1,14 @@
 import parser.Parser;
+import parser.ParserException;
 import parser.ParserFactory;
 import settings.Settings;
 
-import java.util.Arrays;
+import java.io.IOException;
 
 public class Main {
     private static Settings settings = new Settings();
 
     public static void main(String[] args) {
-        args = (String[]) Arrays.asList("/tmp/example.xls").toArray(); // TODO example
         setSettings(args, settings);
         // TODO get settings from args
         // TODO parse file to some table structure
@@ -23,6 +23,10 @@ public class Main {
 
     private static void parseFile(Settings settings) {
         Parser parser = new ParserFactory().createParser();
-        parser.parse(settings.getFilename());
+        try {
+            parser.parse(settings.getFilename());
+        } catch (ParserException e) {
+            // TODO catch
+        }
     }
 }

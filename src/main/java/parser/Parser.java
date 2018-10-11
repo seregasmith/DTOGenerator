@@ -1,5 +1,9 @@
 package parser;
 
+import data.Record;
+
+import java.util.LinkedHashSet;
+
 public interface Parser {
-    void parse(String filepath);
+    LinkedHashSet<Record> parse(String filepath) throws ParserException;
 }
